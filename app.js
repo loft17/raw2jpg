@@ -13,7 +13,7 @@ const port = 3000;
 const MAX_DIMENSION = process.env.MAX_DIMENSION || 2048;
 
 // Definir los formatos permitidos
-const ALLOWED_RAW_FORMATS = ['.arw']; // Puedes añadir otros formatos RAW, ej: '.cr2', '.nef', '.dng'
+const ALLOWED_RAW_FORMATS = ['.arw', '.nef', '.dng']; // Puedes añadir otros formatos RAW, ej: '.cr2', '.nef', '.dng'
 const ALLOWED_JPEG_FORMATS = ['.jpg', '.jpeg'];
 
 // Configuramos Multer para trabajar con archivos en memoria
