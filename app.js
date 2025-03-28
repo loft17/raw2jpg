@@ -12,6 +12,10 @@ const port = 3000;
 // Variable para el tamaño máximo de la imagen (puedes modificarla o asignarla mediante una variable de entorno)
 const MAX_DIMENSION = process.env.MAX_DIMENSION || 2048;
 
+// Definir los formatos permitidos
+const ALLOWED_RAW_FORMATS = ['.arw']; // Puedes añadir otros formatos RAW, ej: '.cr2', '.nef', '.dng'
+const ALLOWED_JPEG_FORMATS = ['.jpg', '.jpeg'];
+
 // Configuramos Multer para trabajar con archivos en memoria
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -43,9 +47,8 @@ app.post('/upload', upload.single('image'), (req, res) => {
   // Determinar la extensión del archivo
   const ext = path.extname(req.file.originalname).toLowerCase();
 
-  if (ext === '.arw') {
-    // Procesamiento de archivos RAW (ARW) usando dcraw -T para generar un TIFF
-    // Guardamos el archivo RAW temporalmente
+  if (ALLOWED_RAW_FORMATS.includes(ext)) {
+    // Procesamiento de archivos RAW usando dcraw -T para generar un TIFF
     const tempFilePath = `./uploads/${Date.now()}-${req.file.originalname}`;
     fs.writeFileSync(tempFilePath, req.file.buffer);
 
@@ -54,7 +57,6 @@ app.post('/upload', upload.single('image'), (req, res) => {
 
     // Ejecutamos dcraw con la opción -T para generar un TIFF
     execFile('dcraw', ['-T', tempFilePath], (err, stdout, stderr) => {
-      // Eliminamos el archivo RAW temporal
       if (fs.existsSync(tempFilePath)) {
         fs.unlinkSync(tempFilePath);
       }
@@ -68,9 +70,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
         return res.status(500).send('Error al procesar la imagen RAW.');
       }
 
-      // Leemos el archivo TIFF generado
       fs.readFile(tiffFilePath, (err, data) => {
-        // Eliminamos el TIFF después de leerlo, si existe
         if (fs.existsSync(tiffFilePath)) {
           fs.unlinkSync(tiffFilePath);
         }
@@ -81,7 +81,6 @@ app.post('/upload', upload.single('image'), (req, res) => {
           return res.status(500).send('Error al leer la imagen TIFF.');
         }
 
-        // Usamos Sharp para redimensionar y convertir la imagen a JPEG
         sharp(data)
           .resize({
             width: parseInt(MAX_DIMENSION),
@@ -102,7 +101,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
           });
       });
     });
-  } else if (ext === '.jpg' || ext === '.jpeg') {
+  } else if (ALLOWED_JPEG_FORMATS.includes(ext)) {
     // Procesamiento de archivos JPEG
     sharp(req.file.buffer)
       .resize({
