@@ -28,7 +28,8 @@ sudo apt-get install dcraw
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu_usuario/tu_repositorio.git cd tu_repositorio
+git clone https://github.com/loft17/raw2jpg.git
+cd raw2jpg
 ```
 
 2. Instala las dependencias:
