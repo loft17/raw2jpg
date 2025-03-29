@@ -35,7 +35,7 @@ cd raw2jpg
 2. Instala las dependencias:
 ```bash
 npm install
-npm install basic-auth
+npm install express express-session multer sharp basic-auth path fs child_process
 ```
 
 3. Crea la carpeta para archivos temporales:
