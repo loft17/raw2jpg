@@ -35,6 +35,7 @@ cd raw2jpg
 2. Instala las dependencias:
 ```bash
 npm install
+npm install basic-auth
 ```
 
 3. Crea la carpeta para archivos temporales:
