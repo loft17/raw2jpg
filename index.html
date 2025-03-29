@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Subir Imagen</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
       background: #f9f9f9;
@@ -23,6 +22,7 @@
       min-height: 100vh;
       padding: 20px;
     }
+
     .container {
       background: #fff;
       width: 100%;
@@ -32,11 +32,13 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
+
     h1 {
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
       font-weight: 300;
     }
+
     #drop-area {
       border: 2px dashed #007BFF;
       border-radius: 8px;
@@ -45,12 +47,15 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+
     #drop-area.hover {
       background-color: #e7f3ff;
     }
+
     #drop-area p {
       font-size: 1rem;
     }
+
     #progress-bar-container {
       width: 100%;
       background: #eee;
@@ -59,12 +64,43 @@
       margin-top: 1rem;
       display: none;
     }
+
     #progress-bar {
       height: 10px;
       background: #007BFF;
       width: 0%;
       transition: width 0.2s;
     }
+
+    #result img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .download-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
     @media (prefers-color-scheme: dark) {
       body {
         background: #121212;
@@ -83,6 +119,10 @@
       #progress-bar {
         background: #bb86fc;
       }
+      .download-btn {
+        background: rgba(30, 30, 30, 0.8);
+        color: #bb86fc;
+      }
     }
   </style>
 </head>
@@ -92,11 +132,13 @@
     <div id="drop-area">
       <p>Arrastra y suelta tu imagen aquí</p>
       <p>o haz clic para seleccionar un archivo</p>
-      <input type="file" id="fileElem" accept=".arw, image/jpeg" style="display:none">
+      <input type="file" id="fileElem" accept=".jpg, .jpeg, .png, .arw, .nef, .dng, .cr2" style="display:none">
     </div>
+
     <div id="progress-bar-container">
       <div id="progress-bar"></div>
     </div>
+
     <div id="result"></div>
   </div>
 
@@ -107,40 +149,39 @@
     const progressBar = document.getElementById('progress-bar');
     const resultDiv = document.getElementById('result');
 
-    // Evitar comportamiento por defecto en eventos de drag & drop
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
       dropArea.addEventListener(eventName, preventDefaults, false);
       document.body.addEventListener(eventName, preventDefaults, false);
     });
 
-    function preventDefaults (e) {
+    function preventDefaults(e) {
       e.preventDefault();
       e.stopPropagation();
     }
 
-    // Añadir o quitar clase para efecto visual
     ['dragenter', 'dragover'].forEach(eventName => {
       dropArea.addEventListener(eventName, () => dropArea.classList.add('hover'), false);
     });
+
     ['dragleave', 'drop'].forEach(eventName => {
       dropArea.addEventListener(eventName, () => dropArea.classList.remove('hover'), false);
     });
 
-    // Permitir seleccionar archivo haciendo clic en el área
     dropArea.addEventListener('click', () => fileInput.click());
+
     fileInput.addEventListener('change', () => {
       if (fileInput.files.length) {
         handleFiles(fileInput.files);
       }
     });
+
     dropArea.addEventListener('drop', (e) => {
-      let dt = e.dataTransfer;
-      let files = dt.files;
+      const files = e.dataTransfer.files;
       handleFiles(files);
     });
 
     function handleFiles(files) {
-      ([...files]).forEach(uploadFile);
+      [...files].forEach(uploadFile);
     }
 
     function uploadFile(file) {
@@ -149,7 +190,6 @@
       const formData = new FormData();
       xhr.open('POST', url, true);
 
-      // Actualizar barra de progreso
       xhr.upload.addEventListener("progress", (e) => {
         if (e.lengthComputable) {
           const percentComplete = (e.loaded / e.total) * 100;
@@ -160,23 +200,16 @@
 
       xhr.addEventListener('readystatechange', function() {
         if (xhr.readyState == 4) {
-          if(xhr.status === 200) {
-            // Mostrar la imagen procesada
-            const arrayBufferView = new Uint8Array(xhr.response);
-            const blob = new Blob([arrayBufferView], {type: "image/jpeg"});
+          if (xhr.status === 200) {
+            const blob = new Blob([xhr.response], { type: "image/jpeg" });
             const urlCreator = window.URL || window.webkitURL;
             const imageUrl = urlCreator.createObjectURL(blob);
-            const imgId = 'processed-image';
-            const imgId = 'processed-image';
-            const downloadId = 'download-btn';
+
             resultDiv.innerHTML = `
               <p>Imagen subida correctamente:</p>
-              <div style="position:relative; display:inline-block; max-width:100%;">
-                <img id="${imgId}" src="${imageUrl}" style="max-width:100%; border-radius:8px;">
-                <a id="${downloadId}" href="${imageUrl}" download="imagen_procesada.jpg"
-                   style="position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.7);
-                          border-radius:8px; padding:8px; text-decoration:none; display:flex;
-                          align-items:center; justify-content:center; box-shadow:0 2px 4px rgba(0,0,0,0.2);">
+              <div class="image-wrapper">
+                <img src="${imageUrl}" alt="Imagen procesada">
+                <a class="download-btn" href="${imageUrl}" title="Descargar">
                   <i class="fa-solid fa-download"></i>
                 </a>
               </div>
@@ -184,7 +217,6 @@
           } else {
             resultDiv.innerHTML = '<p>Error al subir la imagen.</p>';
           }
-          // Resetear la barra de progreso
           progressBar.style.width = '0%';
           progressBarContainer.style.display = 'none';
         }
