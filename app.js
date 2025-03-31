@@ -174,7 +174,9 @@ app.post('/upload', requireLogin, upload.single('image'), async (req, res) => {
     try {
       fs.writeFileSync(tempPath, req.file.buffer);
       await new Promise((resolve, reject) => {
-        execFile('dcraw', ['-T', tempPath], (err) => {
+        // execFile('dcraw', ['-T', tempPath], (err) => {
+          execFile('dcraw', ['-T', '-b', '1.5', '-H', '1', tempPath], (err) => {
+
           if (err) reject(err);
           else resolve();
         });
