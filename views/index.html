@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.png">
+  <meta name="theme-color" content="#007BFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Convertir">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subir Imagen</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container">
+    <h1>Subir Imagen</h1>
+    <div id="drop-area">
+      <p>Arrastra y suelta tu imagen aquí</p>
+      <p>o haz clic para seleccionar un archivo</p>
+      <input type="file" id="fileElem" accept=".jpg, .jpeg, .png, .arw, .nef, .dng, .cr2" style="display:none">
+    </div>
+
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="/script.js"></script>
+
+</body>
+</html>

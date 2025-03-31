@@ -1,0 +1,42 @@
+[2025-03-31T12:53:32.568Z] INFO: Login exitoso: user=admin IP=192.168.19.165
+[2025-03-31T12:53:36.068Z] INFO: Conversión exitosa: JLR4071 - copia (3).jpg IP=192.168.19.165
+[2025-03-31T13:31:50.546Z] INFO: Acceso a /login desde IP=192.168.19.165 AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-31T13:32:13.913Z] INFO: Acceso a /login desde IP=192.168.19.165 AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-31T13:32:19.181Z] INFO: Acceso a /login desde IP=192.168.19.165 AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-31T13:32:22.213Z] INFO: Login exitoso: user=admin IP=192.168.19.165 AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-31T13:32:22.228Z] INFO: Acceso a / (inicio) IP=192.168.19.165 AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-31T13:32:40.468Z] INFO: Archivo subido: Menu.jpg IP=192.168.19.165 AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-31T13:32:40.657Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_15-32.jpg IP=192.168.19.165
+[2025-03-31T13:54:22.054Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:54:40.801Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:54:45.177Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:54:46.152Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:55:05.981Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:55:06.760Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:55:10.065Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:55:42.609Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:56:07.442Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:56:08.109Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:57:31.766Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T13:57:39.409Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T14:00:13.989Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T14:00:14.479Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T14:02:52.789Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T14:04:59.216Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T14:08:07.412Z] INFO: Acceso a /login desde IP=213.97.106.47
+[2025-03-31T14:08:15.275Z] INFO: Login exitoso: user=admin IP=213.97.106.47
+[2025-03-31T14:08:15.296Z] INFO: Acceso a / (inicio) IP=213.97.106.47
+[2025-03-31T14:09:59.865Z] INFO: Acceso a /login desde IP=213.97.106.47
+[2025-03-31T14:10:31.756Z] INFO: Acceso a /login desde IP=213.97.106.47
+[2025-03-31T14:11:38.180Z] INFO: Acceso a /login desde IP=213.97.106.47
+[2025-03-31T14:11:53.628Z] INFO: Login exitoso: user=admin IP=213.97.106.47
+[2025-03-31T14:11:53.650Z] INFO: Acceso a / (inicio) IP=213.97.106.47
+[2025-03-31T14:12:06.046Z] INFO: Archivo subido: ChatGPT Image 31 mar 2025, 15_39_58.png IP=213.97.106.47
+[2025-03-31T14:12:06.226Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_14-12.jpg IP=213.97.106.47
+[2025-03-31T14:12:07.813Z] INFO: Acceso a / (inicio) IP=213.97.106.47
+[2025-03-31T14:12:11.533Z] INFO: Archivo subido: Menu.jpg IP=213.97.106.47
+[2025-03-31T14:12:11.643Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_14-12.jpg IP=213.97.106.47
+[2025-03-31T14:12:59.275Z] INFO: Acceso a / (inicio) IP=213.97.106.47
+[2025-03-31T14:13:00.173Z] INFO: Acceso a / (inicio) IP=213.97.106.47
+[2025-03-31T14:13:10.278Z] INFO: Archivo subido: ChatGPT Image 31 mar 2025, 15_39_58.png IP=213.97.106.47
+[2025-03-31T14:13:10.474Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_14-13.jpg IP=213.97.106.47

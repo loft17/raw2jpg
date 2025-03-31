@@ -1,0 +1,220 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Login Form */
+  form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  form button {
+    padding: 10px;
+    background: #007BFF;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  form button:hover {
+    background: #0056b3;
+  }
+
+  /* Login form específico */
+.login-form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .login-form h2 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 12px;
+    background: #007BFF;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .login-form button:hover {
+    background: #0056b3;
+  }
+  
+  /* Modo oscuro */
+  @media (prefers-color-scheme: dark) {
+    .login-form {
+      background: #1e1e1e;
+      color: #e0e0e0;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+  
+    .login-form input {
+      background: #2c2c2c;
+      color: #e0e0e0;
+      border: 1px solid #444;
+    }
+  
+    .login-form button {
+      background: #bb86fc;
+      color: #000;
+    }
+  
+    .login-form button:hover {
+      background: #9c6ee0;
+    }
+  }
+  
+  
+  /* App Container */
+  .container {
+    background: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+  
+  #drop-area {
+    border: 2px dashed #007BFF;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #drop-area.hover {
+    background-color: #e7f3ff;
+  }
+  
+  #drop-area p {
+    font-size: 1rem;
+  }
+  
+  #progress-bar-container {
+    width: 100%;
+    background: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 1rem;
+    display: none;
+  }
+  
+  #progress-bar {
+    height: 10px;
+    background: #007BFF;
+    width: 0%;
+    transition: width 0.2s;
+  }
+  
+  #result img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+  }
+  
+  .download-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    .container {
+      background: #1e1e1e;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    }
+    #drop-area {
+      border-color: #bb86fc;
+    }
+    #drop-area.hover {
+      background-color: #333;
+    }
+    #progress-bar {
+      background: #bb86fc;
+    }
+    .download-btn {
+      background: rgba(30, 30, 30, 0.8);
+      color: #bb86fc;
+    }
+  }
+  
