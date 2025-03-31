@@ -40,3 +40,9 @@
 [2025-03-31T14:13:00.173Z] INFO: Acceso a / (inicio) IP=213.97.106.47
 [2025-03-31T14:13:10.278Z] INFO: Archivo subido: ChatGPT Image 31 mar 2025, 15_39_58.png IP=213.97.106.47
 [2025-03-31T14:13:10.474Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_14-13.jpg IP=213.97.106.47
+[2025-03-31T14:22:31.080Z] INFO: Acceso a /login desde IP=213.97.106.47
+[2025-03-31T14:22:34.672Z] INFO: Login exitoso: user=admin IP=213.97.106.47
+[2025-03-31T14:22:34.691Z] INFO: Acceso a / (inicio) IP=213.97.106.47
+[2025-03-31T14:22:38.821Z] INFO: Archivo subido: ChatGPT Image 31 mar 2025, 15_39_58.png IP=213.97.106.47
+[2025-03-31T14:22:39.011Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_14-22.jpg IP=213.97.106.47
+[2025-03-31T14:24:46.127Z] INFO: Acceso a /login desde IP=213.97.106.47

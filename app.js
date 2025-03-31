@@ -11,20 +11,8 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
-app.set('trust proxy', 1);
 const port = 3000;
 const DEBUG_MODE = process.argv.includes('-d') || process.argv.includes('--debug');
-
-// Seguridad: Headers HTTP seguros
-app.use(helmet());
-
-// Seguridad: Límite global de peticiones
-app.use(rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  standardHeaders: true,
-  legacyHeaders: false
-}));
 
 // ========= Configuración desde .env ==========
 const MAX_DIMENSION = parseInt(process.env.MAX_DIMENSION);
@@ -34,6 +22,34 @@ const ALLOWED_RAW_FORMATS = parseList(process.env.ALLOWED_RAW_FORMATS || '');
 const ALLOWED_IMAGE_FORMATS = parseList(process.env.ALLOWED_IMAGE_FORMATS || '');
 const LOG_LEVEL = (process.env.LOG_LEVEL || 'none').toLowerCase();
 const credentials = { user: process.env.USERNAME, pass: process.env.PASSWORD };
+
+// ========= trust proxy ==========
+const trustProxy = process.env.TRUST_PROXY;
+if (trustProxy === 'true') {
+  app.set('trust proxy', true);
+} else if (!isNaN(parseInt(trustProxy))) {
+  app.set('trust proxy', parseInt(trustProxy));
+}
+
+// ========= Seguridad ==========
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      imgSrc: ["'self'", "data:", "blob:"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      objectSrc: ["'none'"]
+    }
+  }
+}));
+
+app.use(rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false
+}));
 
 const levels = { none: 0, error: 1, info: 2, debug: 3 };
 const logLevel = levels[LOG_LEVEL] ?? 0;
@@ -195,3 +211,4 @@ app.listen(port, '0.0.0.0', () => {
     });
   }
 });
+
