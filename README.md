@@ -24,27 +24,28 @@ Este proyecto es una aplicación web creada con **Node.js + Express** que permit
 - Navegador moderno
 
 ## 📦 Instalación
-
 ```bash
 git clone https://github.com/tuusuario/raw2jpg.git
 cd raw2jpg
 npm install
-
+```
 
 ## ⚙️ Configuracion
 ### Variables de entorno (.env)
 Copia el ejemplo y edítalo:
 ```bash
 cp .env.example .env
-
+```
 
 ## 🖥️ Uso
 ```bash
 node app.js
+```
 
 Por defecto, el servidor se inicia en:
 ```web
 http://localhost:3000
+```
 
 Para usar en otra red (ej. móvil), accede desde la IP local que aparece al arrancar.
 
