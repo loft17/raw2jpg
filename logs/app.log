@@ -46,3 +46,26 @@
 [2025-03-31T14:22:38.821Z] INFO: Archivo subido: ChatGPT Image 31 mar 2025, 15_39_58.png IP=213.97.106.47
 [2025-03-31T14:22:39.011Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_14-22.jpg IP=213.97.106.47
 [2025-03-31T14:24:46.127Z] INFO: Acceso a /login desde IP=213.97.106.47
+[2025-03-31T14:32:05.528Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T14:32:24.680Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T14:32:30.106Z] INFO: Login exitoso: user=admin IP=192.168.19.165
+[2025-03-31T14:32:30.117Z] INFO: Acceso a / (inicio) IP=192.168.19.165
+[2025-03-31T14:32:44.285Z] INFO: Archivo subido: _MTT9929.JPG IP=192.168.19.165
+[2025-03-31T14:32:44.490Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_16-32.jpg IP=192.168.19.165
+[2025-03-31T14:33:36.052Z] INFO: Acceso a /login desde IP=192.168.19.165
+[2025-03-31T14:33:38.774Z] INFO: Login exitoso: user=admin IP=192.168.19.165
+[2025-03-31T14:33:38.782Z] INFO: Acceso a / (inicio) IP=192.168.19.165
+[2025-03-31T14:33:42.280Z] INFO: Archivo subido: _MTT9929.JPG IP=192.168.19.165
+[2025-03-31T14:33:42.486Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_16-33.jpg IP=192.168.19.165
+[2025-03-31T14:35:01.225Z] INFO: Acceso a / (inicio) IP=192.168.19.165
+[2025-03-31T14:35:05.458Z] INFO: Archivo subido: _MTT9929.JPG IP=192.168.19.165
+[2025-03-31T14:35:05.597Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_16-35.jpg IP=192.168.19.165
+[2025-03-31T14:36:36.636Z] INFO: Acceso a / (inicio) IP=192.168.19.165
+[2025-03-31T14:36:40.051Z] INFO: Archivo subido: _MTT9929.JPG IP=192.168.19.165
+[2025-03-31T14:36:40.198Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_16-36.jpg IP=192.168.19.165
+[2025-03-31T14:39:17.459Z] INFO: Acceso a / (inicio) IP=192.168.19.165
+[2025-03-31T14:39:20.362Z] INFO: Archivo subido: _MTT9929.JPG IP=192.168.19.165
+[2025-03-31T14:39:20.538Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_16-39.jpg IP=192.168.19.165
+[2025-03-31T14:40:23.330Z] INFO: Acceso a / (inicio) IP=192.168.19.165
+[2025-03-31T14:40:26.127Z] INFO: Archivo subido: _MTT9929.JPG IP=192.168.19.165
+[2025-03-31T14:40:26.293Z] INFO: Imagen descargada correctamente: joseromera_2025-03-31_16-40.jpg IP=192.168.19.165
