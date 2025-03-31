@@ -42,28 +42,34 @@ npm install
 
 
 ## ⚙️ Configuracion
-### Variables de entorno (.env)
-Copia el ejemplo y edítalo:
+**Variables de entorno (.env)**
+Copia el archivo de ejemplo y personaliza según tus necesidades:
 ```bash
 cp .env.example .env
 ```
+Edita .env para configurar variables como el puerto del servidor, las credenciales de la base de datos (si las usas), o claves de API, si es necesario.
+
+
 
 ## 🖥️ Uso
+Inicia el servidor:
 ```bash
 node app.js
 ```
 
-Por defecto, el servidor se inicia en:
-```web
+Por defecto, el servidor se ejecutará en:
+```bash
 http://localhost:3000
 ```
 
-Para usar en otra red (ej. móvil), accede desde la IP local que aparece al arrancar.
+
 
 ## 🧠 Autor
 José Romera
 Contacto: [tuemail@ejemplo.com]
 Web: convert.joseromera.net
+
+
 
 ## 📄 Licencia
 MIT © 2025 - José Romera
