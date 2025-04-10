@@ -148,22 +148,31 @@ app.post('/upload', requireLogin, upload.single('image'), async (req, res) => {
   const filename = `joseromera_${now.toISOString().slice(0, 10)}_${now.getHours().toString().padStart(2, '0')}-${now.getMinutes().toString().padStart(2, '0')}.jpg`;
 
   res.set('Content-Disposition', `attachment; filename="${filename}"`);
-
   log('info', `Archivo subido: ${originalName} IP=${ip}`);
 
-  const processAndSend = async (inputBuffer) => {
+  const processWithSharp = async (buffer, isRaw = false) => {
     try {
-      const data = await sharp(inputBuffer)
-        .resize({ width: MAX_DIMENSION, height: MAX_DIMENSION, fit: 'inside' })
-        .jpeg()
-        .toBuffer();
+      let image = sharp(buffer).resize({
+        width: MAX_DIMENSION,
+        height: MAX_DIMENSION,
+        fit: 'inside'
+      });
 
+      if (isRaw) {
+        image = image
+          .modulate({
+            brightness: 1.1,   // más brillo
+            saturation: 1.5    // más saturación
+          });
+      }
+
+      const outputBuffer = await image.jpeg().toBuffer();
       res.set('Content-Type', 'image/jpeg');
-      res.send(data);
-      log('info', `Imagen descargada correctamente: ${filename} IP=${ip}`);
+      res.send(outputBuffer);
+      log('info', `Imagen procesada${isRaw ? ' (RAW)' : ''}: ${filename} IP=${ip}`);
     } catch (err) {
-      log('error', `Error al convertir ${originalName}: ${err.message}`);
-      res.status(500).send('Error al convertir la imagen.');
+      log('error', `Error al procesar ${isRaw ? 'RAW ' : ''}${originalName}: ${err.message}`);
+      res.status(500).send('Error al procesar la imagen.');
     }
   };
 
@@ -173,9 +182,9 @@ app.post('/upload', requireLogin, upload.single('image'), async (req, res) => {
 
     try {
       fs.writeFileSync(tempPath, req.file.buffer);
+
       await new Promise((resolve, reject) => {
-        // execFile('dcraw', ['-T', tempPath], (err) => {
-          execFile('dcraw', ['-T', '-b', '1.5', '-H', '1', tempPath], (err) => {
+        execFile('dcraw', ['-T', 'w', '-b', '2.0', '-H', '1', tempPath], (err) => {
 
           if (err) reject(err);
           else resolve();
@@ -183,7 +192,7 @@ app.post('/upload', requireLogin, upload.single('image'), async (req, res) => {
       });
 
       const tiffBuffer = fs.readFileSync(tiffPath);
-      await processAndSend(tiffBuffer);
+      await processWithSharp(tiffBuffer, true);
     } catch (err) {
       log('error', `Error al procesar RAW ${originalName}: ${err.message}`);
       res.status(500).send('Error al procesar la imagen RAW.');
@@ -192,14 +201,14 @@ app.post('/upload', requireLogin, upload.single('image'), async (req, res) => {
         if (fs.existsSync(file)) fs.unlinkSync(file);
       });
     }
-
   } else if (ALLOWED_IMAGE_FORMATS.includes(ext)) {
-    await processAndSend(req.file.buffer);
+    await processWithSharp(req.file.buffer, false);
   } else {
     log('error', `Formato no soportado: ${originalName} IP=${ip}`);
     return res.status(400).send('Tipo de archivo no soportado.');
   }
 });
+
 
 // ========= Iniciar servidor ==========
 app.listen(port, '0.0.0.0', () => {
@@ -213,4 +222,3 @@ app.listen(port, '0.0.0.0', () => {
     });
   }
 });
-
