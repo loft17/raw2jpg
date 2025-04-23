@@ -1,6 +1,6 @@
 # RAW2JPG Converter
 
-Este proyecto es una aplicación web creada con **Node.js + Express** que permite a usuarios autenticados subir imágenes RAW o estándar y convertirlas automáticamente a formato JPG. La conversión se realiza usando `sharp` para imágenes comunes y `libraw` para archivos RAW.
+Este proyecto es una aplicación web creada con **Node.js + Express** que permite a usuarios autenticados subir imágenes RAW o estándar y convertirlas automáticamente a formato JPG. La conversión se realiza usando `sharp` para imágenes comunes y `dcraw` para archivos RAW.
 
 ## 🚀 Características
 - 🖼️ Soporte para archivos RAW y formatos comunes (.jpg, .png)
@@ -18,7 +18,6 @@ Este proyecto es una aplicación web creada con **Node.js + Express** que permit
 ## ✅ Requisitos
 - Node.js >= 18
 - Linux/macOS para usar dcraw (en Windows, necesitarás un entorno compatible o WSL)
-- `libraw` instalado en el sistema (`npm install libraw.js`)
 - Navegador moderno
 
 
@@ -37,7 +36,6 @@ cd raw2jpg
 3. Instala las dependencias:
 ```bash
 npm install
-npm install libraw.js
 ```
 
 
